@@ -100,4 +100,23 @@ class QuraanBrain {
     //print(neededData[1]);
     return neededData;
   }
+
+   getTheHolyQuraan(String keyword) async{
+    String url = "http://api.alquran.cloud/v1/search/$keyword";
+    Uri api_url = Uri.parse(url);
+    var response = await http.get(api_url);
+    var decodedResponse = jsonDecode(response.body);
+    print(decodedResponse['data']['matches']);
+   // print(decodedResponse['data']['count']);
+    return decodedResponse['data']['matches'];
+  }
+
+  searchQuraan(String query) async{
+    String url = "http://api.alquran.cloud/v1/search/$query";
+    Uri api_url = Uri.parse(url);
+    var response = await http.get(api_url);
+    var decoded_response = jsonDecode(response.body);
+   // print (decoded_response['data']['matches']);
+    return decoded_response['data']['matches'];
+  }
 }

@@ -60,13 +60,12 @@ class _LoadAyahsState extends State<LoadAyahs> {
                             padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                             child: Container(
                                 width: double.infinity,
-                                child: RichText(
-                                    softWrap: true,
-                                    textAlign: TextAlign.center,
-                                    text: TextSpan(
+                                child: Text.rich(
+                                  //  softWrap: false,
+                                     TextSpan(
                                         children:<TextSpan>[
                                           for (var item in items) ...[
-
+                                            // should use list to add the contents
                                           TextSpan(
                                             style: TextStyle(locale: Locale('ar_AE')),
                                               text: '${item['numberInSurah']} '),
